@@ -130,7 +130,7 @@ ElementNode<T1>* Matrix<T1>::Search_Node(int a,int b)
         }
             while (_y->down != nullptr) {
                 _y = _y->down;
-                dynamic_cast<ElementNode<T1> *>(_y);
+                dynamic_cast<ElementNode<T1> *>(_y); // Esto para que lo usas?
                 if (dynamic_cast<ElementNode<T1> *>(_y)->posx == a) {
                     return dynamic_cast<ElementNode<T1> *>(_y);
                 }
@@ -251,6 +251,7 @@ Matrix<T1> Matrix<T1> ::operator+(Matrix<T1> other)
         while (_x != nullptr) {
             auto aux = _x->next;
             while (aux != nullptr) {
+                // Esto va a ser muy pesado en las operaciones
                 auto nd = rpta->Search_Node(dynamic_cast<ElementNode<T1> *>(aux)->posx,
                                             dynamic_cast<ElementNode<T1> *>(aux)->posy);
                 if (nd == nullptr) {
@@ -291,6 +292,7 @@ Matrix<T1> Matrix<T1> ::operator-(Matrix<T1> other)
         while (_x != nullptr) {
             auto aux = _x->next;
             while (aux != nullptr) {
+                // Esto va a ser muy pesado en las operaciones
                 auto nd = rpta->Search_Node(dynamic_cast<ElementNode<T1> *>(aux)->posx,
                                             dynamic_cast<ElementNode<T1> *>(aux)->posy);
                 if (nd == nullptr) {
