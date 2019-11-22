@@ -97,6 +97,7 @@ void Matrix<T1>::set(int a,int b, T1 d)
         }
         else
         {
+            // No estás eliminando el nodo
             vector<Node<T1>*> aux = Search_Roots(temp->posx,temp->posy);
             aux[0]->next = temp->next;
             aux[1]->down = temp->down;
